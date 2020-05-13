@@ -37,9 +37,11 @@ script = ExtResource( 9 )
 
 [node name="Waifu" type="KinematicBody2D" parent="Drawn Sprites"]
 position = Vector2( 778.934, 193.133 )
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Waifu"]
+light_mask = 1025
 texture = ExtResource( 4 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="Drawn Sprites/Waifu"]
@@ -50,6 +52,7 @@ shape = SubResource( 1 )
 [node name="Player" type="KinematicBody2D" parent="Drawn Sprites"]
 position = Vector2( 668.9, 193.133 )
 input_pickable = true
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Player"]

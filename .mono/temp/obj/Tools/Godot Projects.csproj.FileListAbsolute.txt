@@ -4,3 +4,8 @@ E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj
 E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.csproj.CoreCompileInputs.cache
 E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.dll
 E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.pdb
+C:\Users\Adam\Documents\Blacksmith\Blacksmith-From-Another-World\.mono\temp\obj\Tools\Godot Projects.dll
+C:\Users\Adam\Documents\Blacksmith\Blacksmith-From-Another-World\.mono\temp\obj\Tools\Godot Projects.pdb
+C:\Users\Adam\Documents\Blacksmith\Blacksmith-From-Another-World\.mono\temp\bin\Tools\Godot Projects.dll
+C:\Users\Adam\Documents\Blacksmith\Blacksmith-From-Another-World\.mono\temp\bin\Tools\Godot Projects.pdb
+C:\Users\Adam\Documents\Blacksmith\Blacksmith-From-Another-World\.mono\temp\obj\Tools\Godot Projects.csprojAssemblyReference.cache

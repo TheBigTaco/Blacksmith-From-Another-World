@@ -4,11 +4,11 @@ using System;
 public class DisplayCurrentNode : Node2D
 {
     Node2D currentEntity;
-    Sprite displaySprite;
+    Sprite selectedSprite;
     public override void _Ready()
     {
         Visible = false;
-        displaySprite = (Sprite)GetNode("Sprite");
+        selectedSprite = (Sprite)GetNode("Sprite");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,13 +18,13 @@ public class DisplayCurrentNode : Node2D
         if (currentEntity != null)
         {
             Sprite currentSprite = (Sprite)currentEntity.GetNode("Sprite");
-            displaySprite.Texture = currentSprite.Texture;
+            selectedSprite.Texture = currentSprite.Texture;
             Visible = true;
         }
         else
         {
             Visible = false;
-            displaySprite.Texture = null;
+            selectedSprite.Texture = null;
         }
 
     }
