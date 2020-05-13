@@ -1,0 +1,6 @@
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\bin\Tools\Godot Projects.dll
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\bin\Tools\Godot Projects.pdb
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.csprojAssemblyReference.cache
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.csproj.CoreCompileInputs.cache
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.dll
+E:\Users\Brandon\Documents\- Projects\Blacksmith-Brandon_Learning\.mono\temp\obj\Tools\Godot Projects.pdb
