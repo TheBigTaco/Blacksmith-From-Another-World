@@ -1,0 +1,10 @@
+# Godot
+.import/
+.mono/
+build/
+
+# VSCode
+.vscode/
+
+# Visual Studio
+.vs/
