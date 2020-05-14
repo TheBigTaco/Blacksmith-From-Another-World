@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Harem Member.png-880c068a0ca4351df89656b2a47c7c51.stex"
+path="res://.import/Adventurer.png-39f20c526869af873ba8cd25e71ae437.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Harem Member.png"
-dest_files=[ "res://.import/Harem Member.png-880c068a0ca4351df89656b2a47c7c51.stex" ]
+source_file="res://Assets/Entities/Adventurer.png"
+dest_files=[ "res://.import/Adventurer.png-39f20c526869af873ba8cd25e71ae437.stex" ]
 
 [params]
 

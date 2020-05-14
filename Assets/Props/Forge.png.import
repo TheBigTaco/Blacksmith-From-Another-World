@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Adventurer.png-1eb433e487af5256d97e8b8a902cbd85.stex"
+path="res://.import/Forge.png-2d15d87cf23ee3dd075d65dbdcca8e7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Adventurer.png"
-dest_files=[ "res://.import/Adventurer.png-1eb433e487af5256d97e8b8a902cbd85.stex" ]
+source_file="res://Assets/Props/Forge.png"
+dest_files=[ "res://.import/Forge.png-2d15d87cf23ee3dd075d65dbdcca8e7b.stex" ]
 
 [params]
 

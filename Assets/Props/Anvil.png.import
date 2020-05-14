@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Forge.png-b4b240ea1d81cc98a8f91ee8bd002b0d.stex"
+path="res://.import/Anvil.png-a54b35d086b3e61fdde374b65f7d6cb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Forge.png"
-dest_files=[ "res://.import/Forge.png-b4b240ea1d81cc98a8f91ee8bd002b0d.stex" ]
+source_file="res://Assets/Props/Anvil.png"
+dest_files=[ "res://.import/Anvil.png-a54b35d086b3e61fdde374b65f7d6cb0.stex" ]
 
 [params]
 

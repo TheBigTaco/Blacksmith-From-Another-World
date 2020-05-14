@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grindstone.png-c0ff2452a6360330a549cd61a7cdc22b.stex"
+path="res://.import/Selection Background.png-ce1c17cbcec20c1f9e5be99fc2bdcb0b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Grindstone.png"
-dest_files=[ "res://.import/Grindstone.png-c0ff2452a6360330a549cd61a7cdc22b.stex" ]
+source_file="res://Assets/UI/Selection Background.png"
+dest_files=[ "res://.import/Selection Background.png-ce1c17cbcec20c1f9e5be99fc2bdcb0b.stex" ]
 
 [params]
 

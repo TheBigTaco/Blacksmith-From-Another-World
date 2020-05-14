@@ -1,21 +1,29 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Assets/Adventurer.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=1]
 [ext_resource path="res://src/Entity.cs" type="Script" id=2]
 [ext_resource path="res://src/DisplayCurrentNode.cs" type="Script" id=3]
-[ext_resource path="res://Assets/Harem Member.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Selection Background.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Exit.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Entities/Harem Member.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Selection Background.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/Exit.png" type="Texture" id=6]
 [ext_resource path="res://src/HideClick.cs" type="Script" id=7]
 [ext_resource path="res://src/Clickable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/GetMouse.cs" type="Script" id=9]
 [ext_resource path="res://src/EntityMover.cs" type="Script" id=10]
+[ext_resource path="res://Assets/Static/wall-long.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 74.1882
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 173.059, 33.3246 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 29.8098, 29.5183 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16.0275, 15.8085 )
@@ -28,7 +36,6 @@ extents = Vector2( 16.0275, 15.8085 )
 script = ExtResource( 10 )
 
 [node name="InputManager" type="Node2D" parent="GameManager"]
-position = Vector2( 668.9, 193.133 )
 
 [node name="MouseControl" type="Node2D" parent="GameManager/InputManager"]
 script = ExtResource( 9 )
@@ -36,7 +43,7 @@ script = ExtResource( 9 )
 [node name="Drawn Sprites" type="YSort" parent="."]
 
 [node name="Waifu" type="KinematicBody2D" parent="Drawn Sprites"]
-position = Vector2( 778.934, 193.133 )
+position = Vector2( 129.233, 121.315 )
 collision_mask = 0
 script = ExtResource( 2 )
 
@@ -50,7 +57,7 @@ shape = SubResource( 1 )
 [node name="Clickable" parent="Drawn Sprites/Waifu" instance=ExtResource( 8 )]
 
 [node name="Player" type="KinematicBody2D" parent="Drawn Sprites"]
-position = Vector2( 668.9, 193.133 )
+position = Vector2( 936.129, 493.766 )
 input_pickable = true
 collision_mask = 0
 script = ExtResource( 2 )
@@ -62,6 +69,36 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Clickable" parent="Drawn Sprites/Player" instance=ExtResource( 8 )]
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="WallLong" type="Area2D" parent="Room"]
+position = Vector2( 543.904, 307.285 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="Room/WallLong"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong"]
+shape = SubResource( 4 )
+
+[node name="WallLong2" type="Area2D" parent="Room"]
+position = Vector2( 338.471, 447.581 )
+
+[node name="Sprite" type="Sprite" parent="Room/WallLong2"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong2"]
+shape = SubResource( 4 )
+
+[node name="WallSquare" type="Area2D" parent="Room"]
+position = Vector2( 871.888, 268.146 )
+
+[node name="Sprite" type="Sprite" parent="Room/WallSquare"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallSquare"]
+shape = SubResource( 5 )
 
 [node name="UI" type="Node2D" parent="."]
 

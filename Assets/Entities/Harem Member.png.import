@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Anvil.png-4913e92abd4f50ad0a0859de6bfcf6eb.stex"
+path="res://.import/Harem Member.png-888fe940b4e4a0afe8c2154d21a018df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Anvil.png"
-dest_files=[ "res://.import/Anvil.png-4913e92abd4f50ad0a0859de6bfcf6eb.stex" ]
+source_file="res://Assets/Entities/Harem Member.png"
+dest_files=[ "res://.import/Harem Member.png-888fe940b4e4a0afe8c2154d21a018df.stex" ]
 
 [params]
 
