@@ -11,7 +11,7 @@ public class GetMouse : Node
     public override void _Process(float delta)
     {
         GlobalVars.MousePos = GetViewport().GetMousePosition();
-        GD.Print($"x: {GlobalVars.MousePos.x}, y: {GlobalVars.MousePos.y}");
+        //GD.Print($"x: {GlobalVars.MousePos.x}, y: {GlobalVars.MousePos.y}");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
