@@ -16,17 +16,19 @@ public class EntityMover : Node
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        // if (GlobalVars.CurrentClickMode == ClickMode.Move)
-        // {
-        if (Input.IsActionJustPressed("click"))
+
+    }
+    public override void _Input(InputEvent @event)
+    {
+        if (Input.IsActionJustPressed("click") && GlobalVars.CurrentClickMode == ClickMode.Move)
         {
             if (GlobalVars.SelectedEntity != null)
             {
-            GlobalVars.SelectedEntity.targetLocation = GlobalVars.MousePos;
-            GlobalVars.SelectedEntity.CanMove = true;
+                GlobalVars.SelectedEntity.targetLocation = GlobalVars.MousePos;
+                GlobalVars.SelectedEntity.CanMove = true;
             }
-            // GlobalVars.CurrentClickMode = ClickMode.Select;
+            GlobalVars.CurrentClickMode = ClickMode.Select;
+            GD.Print("Switch Mode: Select");
         }
-        // }
     }
 }

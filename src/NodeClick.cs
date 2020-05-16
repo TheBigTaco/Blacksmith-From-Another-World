@@ -16,10 +16,11 @@ public class NodeClick : Area2D
     }
     public void _on_Clickable_input_event(Godot.Object viewport, InputEvent @event, int shapeIdx)
     {
-       if(Input.IsActionJustPressed("click"))// && GlobalVars.CurrentClickMode == ClickMode.Select)
+       if(Input.IsActionJustPressed("click") && GlobalVars.CurrentClickMode == ClickMode.Select)
        {
            GlobalVars.SelectedEntity = parentNode;
-        //    GlobalVars.CurrentClickMode = ClickMode.Move;
+           GlobalVars.CurrentClickMode = ClickMode.Move;
+           GD.Print("Switch Mode: Move");
        }
     }
 
