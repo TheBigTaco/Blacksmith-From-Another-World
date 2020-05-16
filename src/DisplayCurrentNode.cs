@@ -8,7 +8,7 @@ public class DisplayCurrentNode : Node2D
     public override void _Ready()
     {
         Visible = false;
-        selectedSprite = (Sprite)GetNode("Sprite");
+        selectedSprite = GetNode<Sprite>("Sprite");
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +17,7 @@ public class DisplayCurrentNode : Node2D
         currentEntity = GlobalVars.SelectedEntity;
         if (currentEntity != null)
         {
-            Sprite currentSprite = (Sprite)currentEntity.GetNode("Sprite");
+            Sprite currentSprite = currentEntity.GetNode<Sprite>("Sprite");
             selectedSprite.Texture = currentSprite.Texture;
             Visible = true;
         }

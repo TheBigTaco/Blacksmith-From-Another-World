@@ -11,7 +11,7 @@ public class NodeClick : Area2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        parentNode = (Entity)GetParent();
+        parentNode = GetParent<Entity>();
         // Connect("input_event", this, nameof(_on_Player_input_event));
     }
     public void _on_Clickable_input_event(Godot.Object viewport, InputEvent @event, int shapeIdx)
