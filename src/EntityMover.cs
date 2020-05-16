@@ -27,6 +27,7 @@ public class EntityMover : Node
                 GlobalVars.SelectedEntity.targetLocation = GlobalVars.MousePos;
                 GlobalVars.SelectedEntity.CanMove = true;
             }
+            GlobalVars.SelectedEntity = null;
             GlobalVars.CurrentClickMode = ClickMode.Select;
             GD.Print("Switch Mode: Select");
         }
