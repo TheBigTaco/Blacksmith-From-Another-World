@@ -61,6 +61,10 @@
     <Compile Include="src\GlobalVars.cs" />
     <Compile Include="src\HideClick.cs" />
     <Compile Include="src\NodeClick.cs" />
+    <Compile Include="src\Weapon.cs" />
+    <Compile Include="src\Station.cs" />
+    <Compile Include="src\Blacksmith.cs" />
+    <Compile Include="src\StationClick.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

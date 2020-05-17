@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=1]
 [ext_resource path="res://src/Entity.cs" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://src/EntityMover.cs" type="Script" id=10]
 [ext_resource path="res://Assets/Static/wall-long.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Props/Anvil.png" type="Texture" id=13]
+[ext_resource path="res://src/Station.cs" type="Script" id=14]
+[ext_resource path="res://src/StationClick.cs" type="Script" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
@@ -20,12 +23,15 @@ radius = 73.6021
 radius = 74.1882
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 173.059, 33.3246 )
+extents = Vector2( 136, 88 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 29.8098, 29.5183 )
+extents = Vector2( 173.059, 33.3246 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 29.8098, 29.5183 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16.0275, 15.8085 )
 
 [node name="World" type="Node2D"]
@@ -70,6 +76,32 @@ shape = SubResource( 2 )
 
 [node name="Clickable" parent="Drawn Sprites/Player" instance=ExtResource( 8 )]
 
+[node name="Anvil" type="StaticBody2D" parent="Drawn Sprites"]
+position = Vector2( 752, 128 )
+script = ExtResource( 14 )
+Type = 2
+
+[node name="Sprite" type="Sprite" parent="Drawn Sprites/Anvil"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil"]
+shape = SubResource( 3 )
+
+[node name="ProgressBar" type="ProgressBar" parent="Drawn Sprites/Anvil"]
+margin_left = -136.0
+margin_top = -112.0
+margin_right = 136.0
+margin_bottom = -98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StationClick" type="Area2D" parent="Drawn Sprites/Anvil"]
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil/StationClick"]
+shape = SubResource( 3 )
+
 [node name="Room" type="Node2D" parent="."]
 
 [node name="WallLong" type="Area2D" parent="Room"]
@@ -80,7 +112,7 @@ rotation = 1.5708
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="WallLong2" type="Area2D" parent="Room"]
 position = Vector2( 338.471, 447.581 )
@@ -89,7 +121,7 @@ position = Vector2( 338.471, 447.581 )
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong2"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="WallSquare" type="Area2D" parent="Room"]
 position = Vector2( 871.888, 268.146 )
@@ -98,7 +130,7 @@ position = Vector2( 871.888, 268.146 )
 texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallSquare"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="UI" type="Node2D" parent="."]
 
@@ -120,5 +152,7 @@ script = ExtResource( 7 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/SelectedNode/Clickable"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
+[connection signal="input_event" from="Drawn Sprites/Anvil" to="Drawn Sprites/Anvil" method="_on_Station_input_event"]
+[connection signal="input_event" from="Drawn Sprites/Anvil/StationClick" to="Drawn Sprites/Anvil/StationClick" method="_on_StationClick_input_event"]
 [connection signal="input_event" from="UI/SelectedNode/Clickable" to="UI/SelectedNode/Clickable" method="_on_Clickable_input_event"]

@@ -3,6 +3,7 @@ using System;
 
 public class Entity : KinematicBody2D
 {
+    public string EntityName { get; set; } = "";
 
     public Vector2 targetLocation;
     public bool CanMove { get; set; } = false;
