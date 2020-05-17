@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godot Projects", "Godot Projects.csproj", "{B9CB9E29-B87F-40AD-B566-5720EC3A6340}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlacksmithFromAnotherWorld", "BlacksmithFromAnotherWorld.csproj", "{B9CB9E29-B87F-40AD-B566-5720EC3A6340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
