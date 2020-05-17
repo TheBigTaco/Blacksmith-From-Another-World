@@ -15,8 +15,6 @@ public class HideClick : Area2D
         {
             parentNode.Visible = false;
             GlobalVars.SelectedEntity = null;
-            GlobalVars.CurrentClickMode = ClickMode.Select;
-            GD.Print("Switch Mode: Select");
             //ProjectSettings.SetSetting("physics/common/enable_object_picking", false);
         }
     }

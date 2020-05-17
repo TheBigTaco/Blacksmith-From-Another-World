@@ -20,16 +20,10 @@ public class EntityMover : Node
     }
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("click") && GlobalVars.CurrentClickMode == ClickMode.Move)
+        if (Input.IsActionJustPressed("right_click") && GlobalVars.SelectedEntity != null)
         {
-            if (GlobalVars.SelectedEntity != null)
-            {
-                GlobalVars.SelectedEntity.targetLocation = GlobalVars.MousePos;
-                GlobalVars.SelectedEntity.CanMove = true;
-            }
-            GlobalVars.SelectedEntity = null;
-            GlobalVars.CurrentClickMode = ClickMode.Select;
-            GD.Print("Switch Mode: Select");
+            GlobalVars.SelectedEntity.targetLocation = GlobalVars.MousePos;
+            GlobalVars.SelectedEntity.CanMove = true;
         }
     }
 }
