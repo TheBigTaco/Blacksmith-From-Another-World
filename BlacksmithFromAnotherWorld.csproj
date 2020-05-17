@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
     <RootNamespace>GodotProjects</RootNamespace>
-    <AssemblyName>Godot Projects</AssemblyName>
+    <AssemblyName>BlacksmithFromAnotherWorld</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <GodotProjectGeneratorVersion>1.0.7374.16792</GodotProjectGeneratorVersion>
     <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
