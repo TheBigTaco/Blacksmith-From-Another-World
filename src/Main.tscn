@@ -1,20 +1,20 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=1]
-[ext_resource path="res://src/Entity.cs" type="Script" id=2]
-[ext_resource path="res://src/DisplayCurrentNode.cs" type="Script" id=3]
+[ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Static/wall-long.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Entities/Harem Member.png" type="Texture" id=4]
-[ext_resource path="res://Assets/UI/Selection Background.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/Exit.png" type="Texture" id=6]
-[ext_resource path="res://src/HideClick.cs" type="Script" id=7]
-[ext_resource path="res://src/Clickable.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/GetMouse.cs" type="Script" id=9]
-[ext_resource path="res://src/EntityMover.cs" type="Script" id=10]
-[ext_resource path="res://Assets/Static/wall-long.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Props/Anvil.png" type="Texture" id=13]
-[ext_resource path="res://src/Station.cs" type="Script" id=14]
-[ext_resource path="res://src/StationClick.cs" type="Script" id=15]
+[ext_resource path="res://Assets/Props/Anvil.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/Selection Background.png" type="Texture" id=6]
+[ext_resource path="res://Assets/UI/Exit.png" type="Texture" id=7]
+[ext_resource path="res://src/Entities/Clickable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UI/DisplayCurrentNode.cs" type="Script" id=9]
+[ext_resource path="res://src/UI/HideClick.cs" type="Script" id=10]
+[ext_resource path="res://src/GameManager/GetMouse.cs" type="Script" id=11]
+[ext_resource path="res://src/Entities/Station.cs" type="Script" id=12]
+[ext_resource path="res://src/Entities/Entity.cs" type="Script" id=13]
+[ext_resource path="res://src/Entities/StationClick.cs" type="Script" id=14]
+[ext_resource path="res://src/GameManager/EntityMover.cs" type="Script" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
@@ -39,19 +39,19 @@ extents = Vector2( 16.0275, 15.8085 )
 [node name="GameManager" type="Node2D" parent="."]
 
 [node name="MovementManager" type="Node2D" parent="GameManager"]
-script = ExtResource( 10 )
+script = ExtResource( 15 )
 
 [node name="InputManager" type="Node2D" parent="GameManager"]
 
 [node name="MouseControl" type="Node2D" parent="GameManager/InputManager"]
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="Drawn Sprites" type="YSort" parent="."]
 
 [node name="Waifu" type="KinematicBody2D" parent="Drawn Sprites"]
 position = Vector2( 129.233, 121.315 )
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Waifu"]
 light_mask = 1025
@@ -66,10 +66,10 @@ shape = SubResource( 1 )
 position = Vector2( 936.129, 493.766 )
 input_pickable = true
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Player"]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="Drawn Sprites/Player"]
 shape = SubResource( 2 )
@@ -78,11 +78,11 @@ shape = SubResource( 2 )
 
 [node name="Anvil" type="StaticBody2D" parent="Drawn Sprites"]
 position = Vector2( 752, 128 )
-script = ExtResource( 14 )
+script = ExtResource( 12 )
 Type = 2
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Anvil"]
-texture = ExtResource( 13 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil"]
 shape = SubResource( 3 )
@@ -97,7 +97,7 @@ __meta__ = {
 }
 
 [node name="StationClick" type="Area2D" parent="Drawn Sprites/Anvil"]
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil/StationClick"]
 shape = SubResource( 3 )
@@ -109,7 +109,7 @@ position = Vector2( 543.904, 307.285 )
 rotation = 1.5708
 
 [node name="Sprite" type="Sprite" parent="Room/WallLong"]
-texture = ExtResource( 11 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong"]
 shape = SubResource( 4 )
@@ -118,7 +118,7 @@ shape = SubResource( 4 )
 position = Vector2( 338.471, 447.581 )
 
 [node name="Sprite" type="Sprite" parent="Room/WallLong2"]
-texture = ExtResource( 11 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong2"]
 shape = SubResource( 4 )
@@ -127,7 +127,7 @@ shape = SubResource( 4 )
 position = Vector2( 871.888, 268.146 )
 
 [node name="Sprite" type="Sprite" parent="Room/WallSquare"]
-texture = ExtResource( 12 )
+texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallSquare"]
 shape = SubResource( 5 )
@@ -137,19 +137,19 @@ shape = SubResource( 5 )
 [node name="SelectedNode" type="Node2D" parent="UI"]
 visible = false
 position = Vector2( 98.0321, 506.376 )
-script = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="Selection Background" type="Sprite" parent="UI/SelectedNode"]
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="UI/SelectedNode"]
 
 [node name="Clickable" type="Area2D" parent="UI/SelectedNode"]
 position = Vector2( 77.5, -74.5 )
-script = ExtResource( 7 )
+script = ExtResource( 10 )
 
 [node name="Exit" type="Sprite" parent="UI/SelectedNode/Clickable"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/SelectedNode/Clickable"]
 shape = SubResource( 6 )
