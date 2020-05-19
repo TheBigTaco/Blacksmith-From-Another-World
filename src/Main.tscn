@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://src/Entities/Clickable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/UI/DisplayCurrentNode.cs" type="Script" id=9]
 [ext_resource path="res://src/UI/HideClick.cs" type="Script" id=10]
-[ext_resource path="res://src/GameManager/GetMouse.cs" type="Script" id=11]
+[ext_resource path="res://src/Controllers/StationsController.cs" type="Script" id=11]
 [ext_resource path="res://src/Entities/Station.cs" type="Script" id=12]
 [ext_resource path="res://src/Entities/Entity.cs" type="Script" id=13]
 [ext_resource path="res://src/Entities/StationClick.cs" type="Script" id=14]
-[ext_resource path="res://src/GameManager/EntityMover.cs" type="Script" id=15]
+[ext_resource path="res://src/Controllers/EntityMover.cs" type="Script" id=15]
+[ext_resource path="res://src/Controllers/SelectionController.cs" type="Script" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
@@ -36,22 +37,27 @@ extents = Vector2( 16.0275, 15.8085 )
 
 [node name="World" type="Node2D"]
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="Controllers" type="Node" parent="."]
 
-[node name="MovementManager" type="Node2D" parent="GameManager"]
+[node name="EntityMover" type="Node" parent="Controllers"]
 script = ExtResource( 15 )
 
-[node name="InputManager" type="Node2D" parent="GameManager"]
+[node name="SelectionController" type="Node" parent="Controllers"]
+script = ExtResource( 16 )
 
-[node name="MouseControl" type="Node2D" parent="GameManager/InputManager"]
+[node name="StationsController" type="Node" parent="Controllers"]
 script = ExtResource( 11 )
 
 [node name="Drawn Sprites" type="YSort" parent="."]
 
 [node name="Waifu" type="KinematicBody2D" parent="Drawn Sprites"]
-position = Vector2( 129.233, 121.315 )
+position = Vector2( 169.328, 101.267 )
+scale = Vector2( 0.5, 0.5 )
 collision_mask = 0
 script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Waifu"]
 light_mask = 1025
@@ -63,10 +69,14 @@ shape = SubResource( 1 )
 [node name="Clickable" parent="Drawn Sprites/Waifu" instance=ExtResource( 8 )]
 
 [node name="Player" type="KinematicBody2D" parent="Drawn Sprites"]
-position = Vector2( 936.129, 493.766 )
+position = Vector2( 917.513, 510.95 )
+scale = Vector2( 0.5, 0.5 )
 input_pickable = true
 collision_mask = 0
 script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Player"]
 texture = ExtResource( 2 )
@@ -77,8 +87,11 @@ shape = SubResource( 2 )
 [node name="Clickable" parent="Drawn Sprites/Player" instance=ExtResource( 8 )]
 
 [node name="Anvil" type="StaticBody2D" parent="Drawn Sprites"]
-position = Vector2( 752, 128 )
+position = Vector2( 826.463, 143.752 )
 script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
 Type = 2
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Anvil"]
@@ -105,8 +118,11 @@ shape = SubResource( 3 )
 [node name="Room" type="Node2D" parent="."]
 
 [node name="WallLong" type="Area2D" parent="Room"]
-position = Vector2( 543.904, 307.285 )
+position = Vector2( 482.329, 280.078 )
 rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Room/WallLong"]
 texture = ExtResource( 3 )
@@ -115,7 +131,10 @@ texture = ExtResource( 3 )
 shape = SubResource( 4 )
 
 [node name="WallLong2" type="Area2D" parent="Room"]
-position = Vector2( 338.471, 447.581 )
+position = Vector2( 276.896, 420.373 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Room/WallLong2"]
 texture = ExtResource( 3 )
@@ -124,7 +143,10 @@ texture = ExtResource( 3 )
 shape = SubResource( 4 )
 
 [node name="WallSquare" type="Area2D" parent="Room"]
-position = Vector2( 871.888, 268.146 )
+position = Vector2( 658.524, 355.496 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Room/WallSquare"]
 texture = ExtResource( 1 )
@@ -133,6 +155,9 @@ texture = ExtResource( 1 )
 shape = SubResource( 5 )
 
 [node name="UI" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="SelectedNode" type="Node2D" parent="UI"]
 visible = false

@@ -4,10 +4,9 @@ using System;
 public class Entity : KinematicBody2D
 {
     public string EntityName { get; set; } = "";
-
-    public Vector2 targetLocation;
+    public Vector2 TargetLocation { get; set; }
     public bool CanMove { get; set; } = false;
-    [Export] public int speed = 200;
+    [Export] public int speed = 9999;
 
     public override void _Ready()
     {
@@ -18,7 +17,7 @@ public class Entity : KinematicBody2D
     public override void _Process(float delta)
     {
         Vector2 velocity = new Vector2();
-        Vector2 targetVec = targetLocation - Position;
+        Vector2 targetVec = TargetLocation - Position;
 
         if (CanMove)
         {
@@ -35,7 +34,7 @@ public class Entity : KinematicBody2D
             }
 
             MoveAndSlide(velocity);
-            if (Position == targetLocation)
+            if (Position == TargetLocation)
             {
                 CanMove = false;
             }

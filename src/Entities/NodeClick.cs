@@ -10,11 +10,12 @@ public class NodeClick : Area2D
     {
         parentNode = GetParent<Entity>();
     }
+
     public void _on_Clickable_input_event(Godot.Object viewport, InputEvent @event, int shapeIdx)
     {
        if(Input.IsActionJustPressed("click"))
        {
-           GlobalVars.SelectedEntity = parentNode;
+           SelectionController.AddToSelectionQueue(parentNode);
        }
     }
 }

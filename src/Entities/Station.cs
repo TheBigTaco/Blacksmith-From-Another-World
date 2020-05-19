@@ -96,19 +96,19 @@ public class Station : Node2D
             case (WeaponStage.Forge):
                 currentWeapon.Stage = WeaponStage.Refine;
                 // Add to refinble weapons
-                GlobalVars.RefinableWeapons.Add(currentWeapon);
+                StationsController.RefinableWeapons.Add(currentWeapon);
                 break;
             case (WeaponStage.Refine):
                 currentWeapon.Stage = WeaponStage.Finish;
                 // move from refinable to finishable
-                weaponIndex = GlobalVars.RefinableWeapons.FindIndex(n => n == currentWeapon);
-                GlobalVars.FinishableWeapons.Add(currentWeapon);
+                weaponIndex = StationsController.RefinableWeapons.FindIndex(n => n == currentWeapon);
+                StationsController.FinishableWeapons.Add(currentWeapon);
                 break;
             case (WeaponStage.Finish):
                 currentWeapon.Stage = WeaponStage.Sell;
                 // move from finishable to sellable
-                weaponIndex = GlobalVars.FinishableWeapons.FindIndex(n => n == currentWeapon);
-                GlobalVars.SellableWeapons.Add(currentWeapon);
+                weaponIndex = StationsController.FinishableWeapons.FindIndex(n => n == currentWeapon);
+                StationsController.SellableWeapons.Add(currentWeapon);
                 break;
             default:
                 GD.Print("Warning: Invalid Weapon State!");

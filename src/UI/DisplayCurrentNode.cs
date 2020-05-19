@@ -14,7 +14,7 @@ public class DisplayCurrentNode : Node2D
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        currentEntity = GlobalVars.SelectedEntity;
+        currentEntity = SelectionController.SelectedEntity;
         if (currentEntity != null)
         {
             Sprite currentSprite = currentEntity.GetNode<Sprite>("Sprite");

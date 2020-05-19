@@ -14,7 +14,7 @@ public class HideClick : Area2D
         if (Input.IsActionJustPressed("click"))
         {
             parentNode.Visible = false;
-            GlobalVars.SelectedEntity = null;
+            SelectionController.DeselectAll();
             //ProjectSettings.SetSetting("physics/common/enable_object_picking", false);
         }
     }
