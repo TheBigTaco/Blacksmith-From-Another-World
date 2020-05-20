@@ -19,22 +19,22 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=2]
 radius = 78.1037
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 74.1882
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 136, 88 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 173.059, 33.3246 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 29.8098, 29.5183 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16.0275, 15.8085 )
 
 [node name="World" type="Node2D"]
@@ -71,7 +71,7 @@ shape = SubResource( 1 )
 [node name="ClickBox" type="Area2D" parent="Drawn Sprites/Waifu"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Waifu/ClickBox"]
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="Player" type="KinematicBody2D" parent="Drawn Sprites"]
 position = Vector2( 917.513, 510.95 )
@@ -87,12 +87,12 @@ __meta__ = {
 texture = ExtResource( 2 )
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Drawn Sprites/Player"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="ClickBox" type="Area2D" parent="Drawn Sprites/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Player/ClickBox"]
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="Anvil" type="StaticBody2D" parent="Drawn Sprites"]
 position = Vector2( 826.463, 143.752 )
@@ -106,7 +106,7 @@ Type = 2
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ProgressBar" type="ProgressBar" parent="Drawn Sprites/Anvil"]
 margin_left = -136.0
@@ -121,7 +121,7 @@ __meta__ = {
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Anvil/StationClick"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Room" type="Node2D" parent="."]
 
@@ -136,7 +136,7 @@ __meta__ = {
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="WallLong2" type="Area2D" parent="Room"]
 position = Vector2( 276.896, 420.373 )
@@ -148,7 +148,7 @@ __meta__ = {
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallLong2"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="WallSquare" type="Area2D" parent="Room"]
 position = Vector2( 658.524, 355.496 )
@@ -160,7 +160,7 @@ __meta__ = {
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/WallSquare"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="UI" type="Node2D" parent="."]
 __meta__ = {
@@ -185,7 +185,7 @@ script = ExtResource( 10 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/SelectedNode/Clickable"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 [connection signal="input_event" from="Drawn Sprites/Waifu/ClickBox" to="Drawn Sprites/Waifu" method="_on_ClickBox_input_event"]
 [connection signal="input_event" from="Drawn Sprites/Player/ClickBox" to="Drawn Sprites/Player" method="_on_ClickBox_input_event"]
 [connection signal="input_event" from="Drawn Sprites/Anvil" to="Drawn Sprites/Anvil" method="_on_Station_input_event"]
