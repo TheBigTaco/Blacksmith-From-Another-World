@@ -7,18 +7,20 @@
 [ext_resource path="res://Assets/Props/Anvil.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/Selection Background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/UI/Exit.png" type="Texture" id=7]
-[ext_resource path="res://src/Entities/Clickable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Entities/EntityControllable.cs" type="Script" id=8]
 [ext_resource path="res://src/UI/DisplayCurrentNode.cs" type="Script" id=9]
 [ext_resource path="res://src/UI/HideClick.cs" type="Script" id=10]
 [ext_resource path="res://src/Controllers/StationsController.cs" type="Script" id=11]
-[ext_resource path="res://src/Entities/Station.cs" type="Script" id=12]
-[ext_resource path="res://src/Entities/Entity.cs" type="Script" id=13]
-[ext_resource path="res://src/Entities/StationClick.cs" type="Script" id=14]
-[ext_resource path="res://src/Controllers/EntityMover.cs" type="Script" id=15]
+[ext_resource path="res://src/Entities/Stations/Station.cs" type="Script" id=12]
+[ext_resource path="res://src/Entities/Stations/StationClick.cs" type="Script" id=14]
 [ext_resource path="res://src/Controllers/SelectionController.cs" type="Script" id=16]
+[ext_resource path="res://src/Controllers/PathController.cs" type="Script" id=17]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.6021
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 78.1037
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 74.1882
@@ -39,14 +41,14 @@ extents = Vector2( 16.0275, 15.8085 )
 
 [node name="Controllers" type="Node" parent="."]
 
-[node name="EntityMover" type="Node" parent="Controllers"]
-script = ExtResource( 15 )
-
 [node name="SelectionController" type="Node" parent="Controllers"]
 script = ExtResource( 16 )
 
 [node name="StationsController" type="Node" parent="Controllers"]
 script = ExtResource( 11 )
+
+[node name="PathController" type="Node" parent="Controllers"]
+script = ExtResource( 17 )
 
 [node name="Drawn Sprites" type="YSort" parent="."]
 
@@ -54,7 +56,7 @@ script = ExtResource( 11 )
 position = Vector2( 169.328, 101.267 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 0
-script = ExtResource( 13 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -63,17 +65,20 @@ __meta__ = {
 light_mask = 1025
 texture = ExtResource( 4 )
 
-[node name="Hitbox" type="CollisionShape2D" parent="Drawn Sprites/Waifu"]
+[node name="CollisionBox" type="CollisionShape2D" parent="Drawn Sprites/Waifu"]
 shape = SubResource( 1 )
 
-[node name="Clickable" parent="Drawn Sprites/Waifu" instance=ExtResource( 8 )]
+[node name="ClickBox" type="Area2D" parent="Drawn Sprites/Waifu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Waifu/ClickBox"]
+shape = SubResource( 7 )
 
 [node name="Player" type="KinematicBody2D" parent="Drawn Sprites"]
 position = Vector2( 917.513, 510.95 )
 scale = Vector2( 0.5, 0.5 )
 input_pickable = true
 collision_mask = 0
-script = ExtResource( 13 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -81,10 +86,13 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Player"]
 texture = ExtResource( 2 )
 
-[node name="Hitbox" type="CollisionShape2D" parent="Drawn Sprites/Player"]
+[node name="CollisionBox" type="CollisionShape2D" parent="Drawn Sprites/Player"]
 shape = SubResource( 2 )
 
-[node name="Clickable" parent="Drawn Sprites/Player" instance=ExtResource( 8 )]
+[node name="ClickBox" type="Area2D" parent="Drawn Sprites/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawn Sprites/Player/ClickBox"]
+shape = SubResource( 7 )
 
 [node name="Anvil" type="StaticBody2D" parent="Drawn Sprites"]
 position = Vector2( 826.463, 143.752 )
@@ -178,6 +186,8 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/SelectedNode/Clickable"]
 shape = SubResource( 6 )
+[connection signal="input_event" from="Drawn Sprites/Waifu/ClickBox" to="Drawn Sprites/Waifu" method="_on_ClickBox_input_event"]
+[connection signal="input_event" from="Drawn Sprites/Player/ClickBox" to="Drawn Sprites/Player" method="_on_ClickBox_input_event"]
 [connection signal="input_event" from="Drawn Sprites/Anvil" to="Drawn Sprites/Anvil" method="_on_Station_input_event"]
 [connection signal="input_event" from="Drawn Sprites/Anvil/StationClick" to="Drawn Sprites/Anvil/StationClick" method="_on_StationClick_input_event"]
 [connection signal="input_event" from="UI/SelectedNode/Clickable" to="UI/SelectedNode/Clickable" method="_on_Clickable_input_event"]

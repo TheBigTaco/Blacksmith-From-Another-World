@@ -1,17 +1,15 @@
-using Godot;
 using System;
 using System.Collections.Generic;
+using Godot;
 
-public enum StationType
-{
+public enum StationType {
     Null,
     Forge, // Forge
     Anvil, // Refine
     Grindstone, // Finish
 }
 
-public class Station : Node2D
-{
+public class Station : Node2D {
     [Export] public StationType Type { get; set; } = StationType.Null;
     Dictionary<string, Blacksmith> workingBlacksmiths;
 
@@ -19,8 +17,7 @@ public class Station : Node2D
     float currentProgress = 0F;
     ProgressBar progressBar;
 
-    public override void _Ready()
-    {
+    public override void _Ready() {
         workingBlacksmiths = new Dictionary<string, Blacksmith>();
         progressBar = GetNode<ProgressBar>("ProgressBar");
         progressBar.Visible = false;
@@ -32,15 +29,12 @@ public class Station : Node2D
 
     }
 
-    public override void _Process(float delta)
-    {
-        if (InProgress && progressBar.Value < 100F)
-        {
+    public override void _Process(float delta) {
+        if (InProgress && progressBar.Value < 100F) {
             progressBar.Visible = true;
             currentProgress += 1.23F;
             progressBar.Value = currentProgress;
-            if (currentProgress >= 100)
-            {
+            if (currentProgress >= 100) {
                 // TODO: Handle providing weapons
                 Weapon tempWeapon = new Weapon();
                 tempWeapon.Stage = WeaponStage.Forge;
@@ -48,8 +42,7 @@ public class Station : Node2D
                 // TODO: Show processed weapon
                 GD.Print($"Weapon now has power level: {tempWeapon.Power}");
             }
-        }
-        else {
+        } else {
             InProgress = false;
             currentProgress = 0F;
             progressBar.Value = 0F;
@@ -57,42 +50,33 @@ public class Station : Node2D
         }
     }
 
-    public void _on_Station_input_event()
-    {
-        if (Input.IsActionJustPressed("click"))
-        {
+    public void _on_Station_input_event() {
+        if (Input.IsActionJustPressed("click")) {
             InProgress = true;
             GD.Print("Click!");
         }
     }
 
-
-
-    public void AddBlacksmith(Blacksmith blacksmith)
-    {
+    public void AddBlacksmith(Blacksmith blacksmith) {
         workingBlacksmiths.Add(blacksmith.EntityName, blacksmith);
     }
-    public void RemoveBlacksmith(Blacksmith blacksmith)
-    {
+    public void RemoveBlacksmith(Blacksmith blacksmith) {
         workingBlacksmiths.Remove(blacksmith.EntityName);
     }
 
-    public Weapon ProcessWeapon(Weapon currentWeapon)
-    {
+    public Weapon ProcessWeapon(Weapon currentWeapon) {
         // Modify weapon based on all blacksmiths
         int weaponModifier = 0;
         if (workingBlacksmiths.Count <= 0) {
             return currentWeapon;
         }
-        foreach (KeyValuePair<string, Blacksmith> smith in workingBlacksmiths)
-        {
+        foreach (KeyValuePair<string, Blacksmith> smith in workingBlacksmiths) {
             weaponModifier += smith.Value.Level;
         }
 
         currentWeapon.Power += weaponModifier;
         int weaponIndex;
-        switch(currentWeapon.Stage)
-        {
+        switch (currentWeapon.Stage) {
             case (WeaponStage.Forge):
                 currentWeapon.Stage = WeaponStage.Refine;
                 // Add to refinble weapons

@@ -1,28 +1,22 @@
-using Godot;
 using System;
+using Godot;
 
-public class DisplayCurrentNode : Node2D
-{
+public class DisplayCurrentNode : Node2D {
     Node2D currentEntity;
     Sprite selectedSprite;
-    public override void _Ready()
-    {
+    public override void _Ready() {
         Visible = false;
         selectedSprite = GetNode<Sprite>("Sprite");
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
-    {
+    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(float delta) {
         currentEntity = SelectionController.SelectedEntity;
-        if (currentEntity != null)
-        {
+        if (currentEntity != null) {
             Sprite currentSprite = currentEntity.GetNode<Sprite>("Sprite");
             selectedSprite.Texture = currentSprite.Texture;
             Visible = true;
-        }
-        else
-        {
+        } else {
             Visible = false;
             selectedSprite.Texture = null;
         }

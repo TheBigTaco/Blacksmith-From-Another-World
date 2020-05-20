@@ -54,14 +54,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Controllers\EntityMover.cs" />
+    <Compile Include="src\Controllers\PathController.cs" />
     <Compile Include="src\Controllers\SelectionController.cs" />
     <Compile Include="src\Controllers\StationsController.cs" />
-    <Compile Include="src\Entities\Blacksmith.cs" />
     <Compile Include="src\Entities\Entity.cs" />
-    <Compile Include="src\Entities\NodeClick.cs" />
-    <Compile Include="src\Entities\Station.cs" />
-    <Compile Include="src\Entities\StationClick.cs" />
+    <Compile Include="src\Entities\EntityControllable.cs" />
+    <Compile Include="src\Entities\EntitySelectable.cs" />
+    <Compile Include="src\Entities\Characters\Blacksmith.cs" />
+    <Compile Include="src\Entities\Stations\Station.cs" />
+    <Compile Include="src\Entities\Stations\StationClick.cs" />
     <Compile Include="src\Items\Weapon.cs" />
     <Compile Include="src\UI\DisplayCurrentNode.cs" />
     <Compile Include="src\UI\HideClick.cs" />
