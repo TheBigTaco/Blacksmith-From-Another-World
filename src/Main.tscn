@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Static/wall-square.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Entities/Adventurer.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://src/UI/HideClick.cs" type="Script" id=10]
 [ext_resource path="res://src/Controllers/StationsController.cs" type="Script" id=11]
 [ext_resource path="res://src/Entities/Stations/Station.cs" type="Script" id=12]
-[ext_resource path="res://src/Entities/Characters/Blacksmith.cs" type="Script" id=13]
 [ext_resource path="res://src/Entities/Stations/StationClick.cs" type="Script" id=14]
 [ext_resource path="res://src/Controllers/SelectionController.cs" type="Script" id=16]
 [ext_resource path="res://src/Controllers/PathController.cs" type="Script" id=17]
@@ -66,9 +65,6 @@ __meta__ = {
 light_mask = 1025
 texture = ExtResource( 4 )
 
-[node name="Blacksmith" type="Node" parent="Drawn Sprites/Waifu"]
-script = ExtResource( 13 )
-
 [node name="CollisionBox" type="CollisionShape2D" parent="Drawn Sprites/Waifu"]
 shape = SubResource( 1 )
 
@@ -89,9 +85,6 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Drawn Sprites/Player"]
 texture = ExtResource( 2 )
-
-[node name="Blacksmith" type="Node" parent="Drawn Sprites/Player"]
-script = ExtResource( 13 )
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Drawn Sprites/Player"]
 shape = SubResource( 3 )
